@@ -1,4 +1,8 @@
 import '../index.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import {NavDropdown,DropdownItem } from 'react-bootstrap';
+
 import { items } from './Data'
 import { useState } from 'react'
 import { Link , useLocation} from 'react-router-dom'
@@ -62,9 +66,8 @@ const Navbar = ({ setdata,cart }) => {
         {
           location.pathname=='/'&&(
             <div className='nav-bar-wrapper'>
-          <div className='item'>Filter by{'->'}</div>
           <div onClick={() => setdata(items)} className='item'>
-            No Filter
+            All Devices
           </div>
           <div onClick={() => filterByCategory('mobiles')} className='item'>
             Mobiles
@@ -77,18 +80,33 @@ const Navbar = ({ setdata,cart }) => {
           <div onClick={() => filterByCategory('tablets')} className='item'>
             Tablets
           </div>
+          <NavDropdown title='Select Range'>
+          <DropdownItem>
           <div onClick={() => filterByPrice(29999)} className='item'>
-            {'>='}29999
+            Select Range 20000-30000
           </div>
+          
+
+          </DropdownItem>
+          <DropdownItem>
           <div onClick={() => filterByPrice(39999)} className='item'>
-            {'>='}39999
+          Select Rang 31000-50000
           </div>
+          
+          </DropdownItem>
+          <DropdownItem>
           <div onClick={() => filterByPrice(49999)} className='item'>
-            {'>='}49999
+          Select Range 51000-59999
           </div>
+          
+          </DropdownItem>
+          <DropdownItem>
           <div onClick={() => filterByPrice(59999)} className='item'>
-            {'>='}59999
+            Select Range 80000+
           </div>
+          </DropdownItem>
+          </NavDropdown>
+         
         </div>
 
           )
